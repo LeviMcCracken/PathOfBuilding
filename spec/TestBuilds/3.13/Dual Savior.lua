@@ -28,7 +28,7 @@ return {
 		<PlayerStat stat="ReqInt" value="0"/>
 		<PlayerStat stat="Devotion" value="0"/>
 		<PlayerStat stat="Life" value="92"/>
-		<PlayerStat stat="Spec:LifeInc" value="0"/>
+		<PlayerStat stat="spec_LifeInc" value="0"/>
 		<PlayerStat stat="LifeUnreserved" value="92"/>
 		<PlayerStat stat="LifeUnreservedPercent" value="100"/>
 		<PlayerStat stat="LifeRegen" value="0"/>
@@ -833,7 +833,7 @@ Triggers Level 20 Reflection when Equipped
 ["ManaLeechPerHit"] = 0,
 ["Spec:ManaInc"] = 0,
 ["MissingChaosResist"] = 135,
-["Spec:LifeInc"] = 0,
+["spec_LifeInc"] = 0,
 ["ExtraPoints"] = 2,
 ["FireTakenHit"] = 1,
 ["FullDPS"] = 0,

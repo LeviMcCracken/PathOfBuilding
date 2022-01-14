@@ -27,7 +27,7 @@
 		<PlayerStat stat="ReqInt" value="0"/>
 		<PlayerStat stat="Devotion" value="0"/>
 		<PlayerStat stat="Life" value="92"/>
-		<PlayerStat stat="Spec:LifeInc" value="0"/>
+		<PlayerStat stat="spec_LifeInc" value="0"/>
 		<PlayerStat stat="LifeUnreserved" value="92"/>
 		<PlayerStat stat="LifeUnreservedPercent" value="100"/>
 		<PlayerStat stat="LifeRegen" value="0"/>

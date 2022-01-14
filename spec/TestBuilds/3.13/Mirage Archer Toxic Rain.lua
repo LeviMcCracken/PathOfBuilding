@@ -29,7 +29,7 @@ return {
 		<PlayerStat stat="ReqInt" value="103"/>
 		<PlayerStat stat="Devotion" value="0"/>
 		<PlayerStat stat="Life" value="4533"/>
-		<PlayerStat stat="Spec:LifeInc" value="86"/>
+		<PlayerStat stat="spec_LifeInc" value="86"/>
 		<PlayerStat stat="LifeUnreserved" value="4533"/>
 		<PlayerStat stat="LifeUnreservedPercent" value="100"/>
 		<PlayerStat stat="LifeRegen" value="471.432"/>
@@ -1421,7 +1421,7 @@ Implicits: 0
 ["MissingColdResist"] = 0,
 ["ChaosGuardAbsorbRate"] = 0,
 ["Spec:ManaInc"] = 8,
-["Spec:LifeInc"] = 86,
+["spec_LifeInc"] = 86,
 ["PhysicalTakenHit"] = 0.518,
 ["ExtraPoints"] = 2,
 ["FullDPS"] = 0,

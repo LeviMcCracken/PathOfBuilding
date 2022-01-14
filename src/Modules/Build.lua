@@ -343,7 +343,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 		{ stat = "Devotion", label = "Devotion", color = colorCodes.RARE, fmt = "d" },
 		{ },
 		{ stat = "Life", label = "Total Life", fmt = "d", compPercent = true },
-		{ stat = "Spec:LifeInc", label = "%Inc Life from Tree", fmt = "d%%", condFunc = function(v,o) return v > 0 and o.Life > 1 end },
+		{ stat = "spec_LifeInc", label = "%Inc Life from Tree", fmt = "d%%", condFunc = function(v,o) return v > 0 and o.Life > 1 end },
 		{ stat = "LifeUnreserved", label = "Unreserved Life", fmt = "d", condFunc = function(v,o) return v < o.Life end, compPercent = true },
 		{ stat = "LifeUnreservedPercent", label = "Unreserved Life", fmt = "d%%", condFunc = function(v,o) return v < 100 end },
 		{ stat = "LifeRegen", label = "Life Regen", fmt = ".1f" },

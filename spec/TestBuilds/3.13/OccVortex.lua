@@ -33,7 +33,7 @@ return {
 		<PlayerStat stat="ReqInt" value="188"/>
 		<PlayerStat stat="Devotion" value="0"/>
 		<PlayerStat stat="Life" value="6728"/>
-		<PlayerStat stat="Spec:LifeInc" value="201"/>
+		<PlayerStat stat="spec_LifeInc" value="201"/>
 		<PlayerStat stat="LifeUnreserved" value="6728"/>
 		<PlayerStat stat="LifeUnreservedPercent" value="100"/>
 		<PlayerStat stat="LifeRegen" value="329.616"/>
@@ -655,7 +655,7 @@ Implicits: 0
 ["IgniteChanceOnHit"] = 10,
 ["Spec:ManaInc"] = 43,
 ["PowerChargesMax"] = 3,
-["Spec:LifeInc"] = 201,
+["spec_LifeInc"] = 201,
 ["ExtraPoints"] = 2,
 ["FullDPS"] = 0,
 ["EnergyShieldOnHit"] = 0,

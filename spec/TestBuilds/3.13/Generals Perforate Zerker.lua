@@ -41,7 +41,7 @@ return {
 		<PlayerStat stat="ReqInt" value="96"/>
 		<PlayerStat stat="Devotion" value="0"/>
 		<PlayerStat stat="Life" value="4961"/>
-		<PlayerStat stat="Spec:LifeInc" value="107"/>
+		<PlayerStat stat="spec_LifeInc" value="107"/>
 		<PlayerStat stat="LifeUnreserved" value="4961"/>
 		<PlayerStat stat="LifeUnreservedPercent" value="100"/>
 		<PlayerStat stat="LifeRegen" value="438.268"/>
@@ -1296,7 +1296,7 @@ Gain 50 Life when you Stun an Enemy
 ["BleedChance"] = 9,
 ["Armour"] = 17222,
 ["Spec:ManaInc"] = 0,
-["Spec:LifeInc"] = 107,
+["spec_LifeInc"] = 107,
 ["PoisonAvoidChance"] = 0,
 ["LightningResistTotal"] = 110,
 ["ExtraPoints"] = 2,

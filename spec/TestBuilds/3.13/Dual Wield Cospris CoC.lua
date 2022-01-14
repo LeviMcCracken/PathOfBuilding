@@ -29,7 +29,7 @@ return {
 		<PlayerStat stat="ReqInt" value="257"/>
 		<PlayerStat stat="Devotion" value="0"/>
 		<PlayerStat stat="Life" value="1348"/>
-		<PlayerStat stat="Spec:LifeInc" value="0"/>
+		<PlayerStat stat="spec_LifeInc" value="0"/>
 		<PlayerStat stat="LifeUnreserved" value="256"/>
 		<PlayerStat stat="LifeUnreservedPercent" value="18.991097922849"/>
 		<PlayerStat stat="LifeRegen" value="1.348"/>
@@ -1229,7 +1229,7 @@ Your Maximum Frenzy Charges is equal to your Maximum Power Charges
 ["Spec:EvasionInc"] = 148,
 ["Spec:ArmourInc"] = 0,
 ["Spec:ManaInc"] = 8,
-["Spec:LifeInc"] = 0,
+["spec_LifeInc"] = 0,
 ["ExtraPoints"] = 2,
 ["KnockbackChanceOnHit"] = 0,
 ["TheoreticalOffensiveWarcryEffect"] = 1,

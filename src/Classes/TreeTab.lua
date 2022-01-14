@@ -802,7 +802,7 @@ function TreeTabClass:ToggleAutoBuilder(caller)
 	end
 
 	local yPos = self.controls.treeHeatMap.y == 0 and self.controls.specSelect.height + 4 or self.controls.specSelect.height * 2 + 8
-	self.controls.autoBuilder = new("AutoBuilder", {"TOPLEFT",self.controls.specSelect,"BOTTOMLEFT"}, 0, yPos, 700, 220, currentStat and currentStat.label or "")
+	self.controls.autoBuilder = new("AutoBuilder", self, {"TOPLEFT",self.controls.specSelect,"BOTTOMLEFT"}, 0, yPos, 700, 220, currentStat and currentStat.label or "")
 
 	self.controls.autoBuilder.label = "Select options to build around."
 
@@ -888,7 +888,7 @@ function TreeTabClass:BuildPowerReportList(currentStat)
 	for nodeName, node in pairs(self.build.spec.tree.clusterNodeMap) do
 		local isAlloc = node.alloc
 		if not isAlloc then			
-			local nodePower = (node.power.singleStat or 0) * ((displayStat.pc or displayStat.mod) and 100 or 1)
+			local nodePower = (node.power and node.power.singleStat or 0) * ((displayStat.pc or displayStat.mod) and 100 or 1)
 			local nodePowerStr = s_format("%"..displayStat.fmt, nodePower)
 
 			nodePowerStr = formatNumSep(nodePowerStr)
