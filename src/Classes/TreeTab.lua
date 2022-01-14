@@ -134,6 +134,12 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	end)
 	self.showPowerReport = false
 
+	self.controls.autoBuilderButton = new("ButtonControl", {"LEFT", self.controls.treeHeatMapStatSelect, "RIGHT"}, 166, 0, 150, 20, self.showAutoBuilder and "Hide Auto Builder" or "Show Auto Builder", function()
+		self.showAutoBuilder = not self.showAutoBuilder
+		self:ToggleAutoBuilder()
+	end)
+	self.showAutoBuilder = false
+
 	self.controls.specConvertText = new("LabelControl", {"BOTTOMLEFT",self.controls.specSelect,"TOPLEFT"}, 0, -14, 0, 16, "^7This is an older tree version, which may not be fully compatible with the current game version.")
 	self.controls.specConvertText.shown = function()
 		return self.showConvert
@@ -201,7 +207,30 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 		end
 	end
 
-	local bottomDrawerHeight = self.showPowerReport and 200 or 0
+	-- Determine positions if one line of controls doesn't fit in the screen width
+	local twoLineHeight = self.controls.treeHeatMap.y == 24 and 26 or 0
+	if(select(1, self.controls.autoBuilderButton:GetPos()) + select(1, self.controls.autoBuilderButton:GetSize()) > viewPort.x + viewPort.width) then
+		twoLineHeight = 26
+		self.controls.treeHeatMap:SetAnchor("BOTTOMLEFT",self.controls.specSelect,"BOTTOMLEFT",nil,nil,nil)
+		self.controls.treeHeatMap.y = 24
+		self.controls.treeHeatMap.x = 125
+
+		self.controls.specSelect.y = -24
+		self.controls.specConvertText.y = -16
+		if self.controls.autoBuilder then
+			self.controls.autoBuilder:SetAnchor("TOPLEFT",self.controls.specSelect,"BOTTOMLEFT",0,self.controls.treeHeatMap.y + self.controls.treeHeatMap.height)
+		end
+	elseif viewPort.x + viewPort.width - (select(1, self.controls.treeSearch:GetPos()) + select(1, self.controls.treeSearch:GetSize())) > (select(1, self.controls.autoBuilderButton:GetPos()) + select(1, self.controls.autoBuilderButton:GetSize())) - viewPort.x  then
+		twoLineHeight = 0
+		self.controls.treeHeatMap:SetAnchor("LEFT",self.controls.treeSearch,"RIGHT",nil,nil,nil)
+		self.controls.treeHeatMap.y = 0
+		self.controls.treeHeatMap.x = 130
+		if self.controls.autoBuilderControl then
+			self.controls.autoBuilderControl:SetAnchor("TOPLEFT",self.controls.specSelect,"BOTTOMLEFT",0,self.controls.specSelect.height + 4)
+		end
+	end
+
+	local bottomDrawerHeight = self.showPowerReport and 200 or self.showAutoBuilder and 200 or 0
 	self.controls.specSelect.y = -bottomDrawerHeight - twoLineHeight
 
 	local treeViewPort = { x = viewPort.x, y = viewPort.y, width = viewPort.width, height = viewPort.height - (self.showConvert and 64 + bottomDrawerHeight + twoLineHeight or 32 + bottomDrawerHeight + twoLineHeight)}
@@ -761,6 +790,22 @@ function TreeTabClass:TogglePowerReport(caller)
 	self.controls.allocatedNodeToggle.enabled = self.controls.powerReportList.enabled
 	self.controls.allocatedNodeDistance.shown = self.controls.powerReportList.allocated
 	self.controls.allocatedNodeToggle.label = self.controls.powerReportList.allocated and "Show Unallocated Nodes" or "Show allocated nodes"
+end
+
+function TreeTabClass:ToggleAutoBuilder(caller)
+	self = self or caller
+	self.controls.autoBuilderButton.label = self.showAutoBuilder and "Hide Auto Builder" or "Show Auto Builder"
+	if not self.showAutoBuilder and self.controls.autoBuilder then
+		self.controls.autoBuilder.shown = false
+		return
+	end
+
+	local yPos = self.controls.treeHeatMap.y == 0 and self.controls.specSelect.height + 4 or self.controls.specSelect.height * 2 + 8
+	self.controls.autoBuilder = new("AutoBuilder", {"TOPLEFT",self.controls.specSelect,"BOTTOMLEFT"}, 0, yPos, 700, 220, currentStat and currentStat.label or "")
+
+	self.controls.autoBuilder.label = "Select options to build around."
+
+	self.controls.autoBuilder.shown = self.showAutoBuilder
 end
 
 function TreeTabClass:BuildPowerReportList(currentStat)
