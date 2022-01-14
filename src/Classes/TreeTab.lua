@@ -797,6 +797,7 @@ function TreeTabClass:ToggleAutoBuilder(caller)
 	self.controls.autoBuilderButton.label = self.showAutoBuilder and "Hide Auto Builder" or "Show Auto Builder"
 	if not self.showAutoBuilder and self.controls.autoBuilder then
 		self.controls.autoBuilder.shown = false
+		autoBuildMode = false
 		return
 	end
 
@@ -806,6 +807,7 @@ function TreeTabClass:ToggleAutoBuilder(caller)
 	self.controls.autoBuilder.label = "Select options to build around."
 
 	self.controls.autoBuilder.shown = self.showAutoBuilder
+	autoBuildMode = self.showAutoBuilder
 end
 
 function TreeTabClass:BuildPowerReportList(currentStat)

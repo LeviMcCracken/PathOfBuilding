@@ -474,7 +474,7 @@ function PassiveSpecClass:AllocNode(node, altPath)
 	end
 
 	-- Allocate all nodes along the path
-	if node.dependsOnIntuitiveLeapLike then
+	if node.dependsOnIntuitiveLeapLike or autoBuildMode then
 		node.alloc = true
 		self.allocNodes[node.id] = node
 	else
@@ -863,7 +863,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 			end
 		end
 		node.visited = false
-		if not anyStartFound then
+		if not anyStartFound and not autoBuildMode then
 			-- No start nodes were found through ANY nodes
 			-- Therefore this node and all nodes depending on it are orphans and should be pruned
 			for _, depNode in ipairs(node.depends) do
